@@ -47,8 +47,8 @@ export default async function handler(req, res) {
     const response = await fetch("https://learning-go.dev/api/client/operation", {
       method: "POST",
       headers: {
-        "Authorization": "5fad7120-ac4c-11f0-8e8d-eb3b67505de2",
-        "Content-Type": "application/json",
+        "Authorization": process.env.LEARNING_GO_API_KEY,
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(payload),
     });
@@ -64,3 +64,4 @@ export default async function handler(req, res) {
     res.status(500).json({ error: err.message });
   }
 }
+
